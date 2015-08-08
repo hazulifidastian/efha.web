@@ -45,6 +45,7 @@
     <section>
       {% if meta.page == 'blog' %}
           {% include ('blog.html') %}
+          <p class="pagination">Older . Newer</p>
       {% elseif meta.page == 'post' %} <!-- Single page shows individual blog post -->
           {% include ('post.html') %}
       {% else %}
