@@ -8,7 +8,7 @@ define('THEMES_DIR', ROOT_DIR . 'themes/');
 define('CONFIG_DIR', ROOT_DIR . 'config/');
 define('CACHE_DIR', LIB_DIR . 'cache/');
 
-define('CONTENT_EXT', '.md');
+define('CONTENT_EXT', '.html');
 
 require_once(VENDOR_DIR . 'autoload.php');
 require_once(LIB_DIR . 'pico.php');

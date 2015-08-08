@@ -1,0 +1,40 @@
+/*
+Title: Instalasi wxWidgets di Mac OS X dan XCode
+Date: 2012/11/05
+Page: post
+Labels: c++, wxWidgets
+*/
+
+<p>wxWidgets adalah library GUI C++ yang memudahkan developer membuat aplikasi dengan arsitektur 32-bit dan 64-bit pada platform Windows, OS X, Linux dan UNIX. Tidak seperti perangkat cross-platform lain, wxWidgets memberikan tampilan aplikasi benar-benar seperti tampilan aslinya (truly native look and feel). Karena wxWidget menggunakan API asli dari masing-masing platform tersebut.</p>
+
+<h4>Requirements</h4>
+
+<p>Instalasi wxWidgets di jalankan pada platform <b>Mac OS X 10.8</b> dengan <b>XCode 4.4</b>. Default instalasi XCode 4.4 tidak menyertakan command-line tools untuk menjalankan perintah kompilasi seperti gcc dan g++. Paket command-line tools harus didownload secara terpisah dengan menjalankan XCode <b>:Menu:</b> Preferences :: Download :: Components :: Cari Command-line Tools dan selanjutnya klik "Check and install Now".</p>
+
+<p>Kemudian dibutuhkan wxWidget. wxWidgets 2.9.4 yang dapat didownload di <a href="http://www.wxwidgets.org/downloads">http://www.wxwidgets.org/downloads</a>. Saat tulisan ini dibuat, versi terakhir wxWidget adalah 2.9.4. Pastikan yang didownload adalah link "With Unix line endings (for Unix and OS X): tar.bz2". Setelah download selesai, extract file ke direktori apa saja. Contoh, folder ~/wx/wxWidgets-2.9.4 .</p>
+
+<h4>Build the library</h4>
+
+<p>Ganti direktori ke WX root. Di contoh ini direktori WX root ada pada ~/wx/wxWidgets-2.9.4</p>
+
+<pre><code>$ cd ~/wx/wxWidgets-2.9.4
+# perintah pada terminal Mac OS X</code></pre>
+
+<p><b>Create an output directory for the build</b>, Setiap tipe build harus memiliki direktori terpisah dari source code.</p>
+
+<pre><code>$ mkdir build-release
+$ cd build-release</code></pre>
+
+<h4>Konfigurasi library</h4>
+
+<p>Sekarang konfigurasi library sesuai dengan spesifikasi tipe yang diinginkan. Untuk melihat opsi yang bisa digunakan pada Mac OS X, <a href="http://wiki.wxwidgets.org/Possible_Configure_Flags_under_OS_X"> Possible Configure Flags under OS X </a>. Untuk Mac OS X 10.8 opsi yang digunakan seperti ini:</p>
+
+<pre><code>$ ../configure --with-osx_cocoa --with-macosx-version-min=10.7 --with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk --prefix="$(pwd)"</code></pre>
+
+<h4>Make</h4>
+
+<p>Kompilasi kode wxWidgets dengan perintah:</p>
+
+<pre><code>$ make</code></pre>
+
+<p><b>References</b>, <a href="http://wiki.wxwidgets.org/Compiling_wxWidgets_using_the_command-line_(Terminal)">Compiling wxWidgets using the command-line (Terminal)</a>.</p>

@@ -1,0 +1,26 @@
+/*
+Title: wxWidgets Hello World Mac OS X 10.8
+Date: 2012/11/06
+Page: post
+Labels: c++, wxWidgets
+*/
+
+<p>Pertama kali menggunakan wxWidgets, copy/paste kode <a href="http://www.wxwidgets.org/docs/tutorials/hworld.txt">Hello World</a> C++ menggunakan library wxWidgets, dari Robert Roeblings.</p>
+
+<script src="https://gist.github.com/hazulifidastian/a3e547c269740668db12.js"></script>
+
+<p>Sebelum kompilasi, direktori hasil build-release ditulisan sebelumnya PATHnya harus dishare agar bisa diakses dari direktori manapun.</p>
+
+<pre><code>$ nano ~/.bash_profile</code></pre>
+
+<p>pada file .bash_profile tambahkan baris berisi path direktori hasil build ditulisan sebelumnya.</p>
+
+<pre><code>export="~/wx/wxWidgets-2.9.4/build-release":$PATH</code></pre>
+
+<p>Sekarang saatnya kompilasi, tutup terminal yang sedang terbuka. Kemudian buka kembali terminal agar path yang baru dishare aktif. Dan kompilasi hworld.cpp dengkan perintah:</p>
+
+<pre><code>$ g++ -c `wx-config --cxxflags` hworld.cpp
+$ g++ -o hworld hworld.o `wx-config --libs`
+$ ./hworld</code></pre>
+
+<p>Jika keluar jendela aplikasi Hello World, wxWidgets sudah terinstalasi dengan baik.</p>

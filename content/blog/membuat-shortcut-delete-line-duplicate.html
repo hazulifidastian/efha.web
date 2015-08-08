@@ -1,0 +1,24 @@
+/*
+Title: Membuat Shortcut Delete-Line dan Duplicate-Line di Xcode 4
+Date: 2012/11/07
+Page: post
+Labels: xcode
+*/
+
+<p>Terbiasa menggunakan Netbeans untuk editing kode Php, saya begitu familiar dengan keyboard shortcutnya. Move line up/down &amp; left/right, duplicate-line, dan delete-line adalah shortcut yang sangat populer. Di Xcode move line sudah tersedia, hanya perlu merubah key binding nya agar sesuai dengan default pada netbeans. Sedangkan untuk duplicate-line dan delete-line perlu sedikit usaha.</p>
+
+<p>Buka terminal,</p>
+
+<pre><code>$ cp /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist ~/Desktop/IDETextKeyBindingSet.plist</code></pre>
+
+<p><b>IDETextKeyBindingSet.plist</b> adalah xml file yang menyimpan informasi shortcut yang digunakan oleh Xcode. IDETextKeyBindingSet.plist di salin ke desktop untuk di edit, karena file di direktori aslinya terkunci. Selanjutnya buka IDETextKeyBindingSet.plist yang ada di desktop dengan mengunakan texteditor, seperti textedit dan tambahkan baris:</p>
+
+<script src="https://gist.github.com/hazulifidastian/2a1b9c1dc6b48957e1b9.js"></script>
+
+<p>Setelah disimpan, salin kembali file IDETextKeyBindingSet.plist yang sudah di edit ke direktori aslinya.</p>
+
+<pre><code>$ sudo cp ~/Desktop/IDETextKeyBindingSet.plist /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist</code></pre>
+
+<p>Buka Xcode :Menu: Preferences :: Key Bindings. Gunakan fasilitas "Search" untuk mencari key yang baru ditambahkan (Delete Line dan Duplicate Line). Dan jika sudah ketemu, rubah kombinasi shortcut keyboardnya. Untuk shortcut yang conflict bisa cari kombinasi shortcut yang lain.</p>
+
+<p>Diatas adalah cara manual menambahkan shortcut pada Xcode. Cara lain yang lebih mudah bisa dengan download aplikasi <a href="http://www.keyboardmaestro.com/">Keyboard Maestro</a>.</p>

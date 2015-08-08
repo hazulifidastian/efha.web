@@ -1,0 +1,36 @@
+/*
+Title: Ignoring files di Git dengan .gitignore
+Date: 2012/12/13
+Page: post
+Labels: git
+*/
+
+<p>Cara membuat git mengabaikan file cukup mudah. Hanya dengan menambahkan file <b>.gitignore </b>didalam folder repository, maka git akan mengabaikan file / folder sesuai dengan rule yang ada didalamnya.</p>
+
+<p>Ada file atau folder tertentu didalam repository yang tidak perlu terekam dalam aktifitas kontrol versi. Seperti file .thumbs, .bak (temporary file), .exe atau .dll yang merupakan hasil dari source code. Contoh lain juga .DS_STORE (informasi folder pada mac) yang bukan menjadi bagian dari source tidak perlu dikontrol perubahannya.</p>
+
+<p>Buat sebuah files .gitignore, dan isi dengan rule yang diinginkan</p>
+
+<pre><code># ini komentar
+*.[oa]             # abaikan file *.o dan *.a
+*~                 # abaikan file yang diakhiri dengan ~
+*.bak              # abaikan file dengan ekstensi .bak
+!file.bak          # pengecualian, file.bak tidak diabaikan
+/css               # hanya mengabaikan file didalam folder css, 
+                   # foldernya didalamnya tidak
+test/              # abaikan semua file didalam folder test/
+doc/*.txt          # abaikan doc/notes.txt, 
+                   # tapi tidak doc/server/arch.txt</code></pre>
+
+<p>Lakukan add dan commit setelah menambahkan .gitignore</p>
+
+<pre><code>$ git add .gitignore
+$ git commit -m "Menambahkan .gitignore"
+</code></pre>
+
+<p>Jika .gitignore ditambahkan setelah melakukan beberapa kali commit. Buang file yang tidak ingin dikontrol dengan perintah</p>
+
+<pre><code>$ git rm --cached namafile
+$ git rm --cached *namafile</code></pre>
+
+<p>Jangan lupa add dan commit setelah menghapus file, git akan menghapus history file tersebut.</p>
