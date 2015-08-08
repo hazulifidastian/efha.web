@@ -1,0 +1,9 @@
+<article class="post">
+  <header class="post-title">
+    {% if meta.title %}<h3>{{ meta.title }}</h3>{% endif %}
+    <p><small>Labels: {{ meta.labels }}</small></p>
+  </header>
+  <section>
+    {{ content }}
+  </section>
+</article>

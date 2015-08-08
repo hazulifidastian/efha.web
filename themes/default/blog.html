@@ -1,0 +1,12 @@
+<div class='blog-posts'>
+  {% for page in pages %}
+    {% if page.meta_page == 'post' %}
+      <article class="post">
+        <header class="post-title">
+          <h4><a href="{{ page.url }}">{{ page.title }}</a></h4>
+          <p><small>{{ page.date }} Labels: {{ page.meta_labels }}</small></p>
+        </header>
+      </article>
+    {% endif %}
+  {% endfor %}
+</div>

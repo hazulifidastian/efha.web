@@ -1,0 +1,187 @@
+@font-face {
+  font-family: Merriweather;
+  src: url('Merriweather/Merriweather-Regular.ttf');
+}
+@font-face {
+  font-family: Oswald;
+  src: url('Oswald/Oswald-Regular.ttf');
+}
+
+body {
+  background-color: #fcfcfc;
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 0 2em;
+  word-wrap: break-word;
+  color: #38313b;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #38313b;
+  font-family: 'Oswald', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  line-height: normal;
+}
+
+.container {
+  margin: auto;
+  max-width: 33.875em;
+  padding: 0 1em;
+}
+
+.home p + p{
+  text-indent: 0;
+  margin-top: 0;
+}
+
+p {
+  text-align: justify;
+}
+
+a         { color: #0058a1; text-decoration: none;}
+a:hover   { color: #1b202e; text-decoration: underline;}
+a:visited { color: #5b2b61; text-decoration: none;}
+
+
+#header {
+  margin-bottom: 2em;
+  word-wrap: normal;
+  display: inline-table;
+}
+
+#header h1 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.6em;
+  width: 100%;
+}
+
+#header a {
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Oswald', 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+}
+
+#header .title {
+  display: inline-block;
+  font-size: 270%;
+}
+
+#header .title a {
+  color: #00BCD5;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#header .title a:hover {
+  color: #000;
+}
+
+#header a.extra {
+  color: #686169;
+  margin-left: 1em;
+  font-weight: 400;
+}
+
+#header a.extra_first {
+  color: #686169;
+  margin-left: 0em;
+  font-weight: 400;
+}
+
+#header a.active {
+  color: #f05a35;
+}
+
+#header a.extra:hover {
+  color: #000;
+}
+
+#footer {
+  border-top: 4px solid #8f9a9c;
+  margin-top: 3em;
+  padding-top: 1em;
+  color: #655f66;
+  font-size: 85%;
+}
+
+#footer a {
+  color: #8085C1;
+}
+
+.post h1, 
+.post h2, 
+.post h3, 
+.post h4, 
+.post h5, 
+.post h6 {
+  font-weight: 500;
+  font-family: 'Merriweather', Georgia, serif;
+  word-wrap: break-word;
+  text-transform: capitalize;
+  color: #38313b;
+  text-rendering: optimizeLegibility;
+  line-height: normal;
+}
+
+.post .post-title a {
+  color: #38313b;
+}
+
+.post .post-title a:hover {
+  text-decoration: underline;
+}
+
+.post p + p {
+  text-indent:0;
+  margin-top: 0;
+} 
+
+.post .post-title h4 {
+  margin-bottom: 0em;
+}
+
+.bottom-holder {
+  display: table;
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 4px solid #afbabc;
+}
+
+.bottom {
+  width: 30%;
+  display: table-cell;
+}
+
+.bottom1 { padding-right: 1em; }
+.bottom2 { padding-left:1em; }
+
+.bottom .Label ul{
+  -webkit-padding-start: 0;
+  padding-left: 0;
+  list-style-type: none;
+  margin-left: 0;
+  text-indent: 0;
+}
+
+.pagination {
+  text-align:center;
+  margin-top: 0.5;
+}
+
+pre {
+  margin-bottom: 1.5em;
+  padding: 1em;
+  border: 1px solid #939393;
+  background-color: #F5F5F5;
+  border-radius: 3px;
+}
+
+pre code {
+  word-wrap: break-word;
+  white-space: pre;
+}
