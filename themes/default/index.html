@@ -1,65 +1,67 @@
 <!doctype html>
 <html lang="{% if meta.lang %} {{ meta.lang }} {% else %} {{ 'id' }} {% endif %}">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+    <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
 
-  {% if meta.description %}
-    <meta name="description" content="{{ meta.description }}"> 
-  {% endif %}{% if meta.robots %}
-    <meta name="robots" content="{{ meta.robots }}">
-  {% endif %}
+    {% if meta.description %}
+        <meta name="description" content="{{ meta.description }}"> 
+    {% endif %}{% if meta.robots %}
+        <meta name="robots" content="{{ meta.robots }}">
+    {% endif %}
 
-  <meta name="author" content="Hazuli Fidastian">
+    <meta name="author" content="Hazuli Fidastian">
 
-  <link rel="stylesheet" href="{{ theme_url }}/assets/css/normalize.min.css">
-  <link rel="stylesheet" href="{{ theme_url }}/assets/css/typeplate.min.css">
-  <link rel="stylesheet" href="{{ theme_url }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ theme_url }}/assets/css/normalize.min.css">
+    <link rel="stylesheet" href="{{ theme_url }}/assets/css/typeplate.min.css">
+    <link rel="stylesheet" href="{{ theme_url }}/assets/css/style.css">
 
-  {% if meta.page == 'post' %} <!-- Load highlight -->
-    <link rel="stylesheet" href="{{ theme_url }}/assets/css/gistthemes.css">
-  {% endif %}
+    {% if meta.page == 'post' %} <!-- Load highlight -->
+        <link rel="stylesheet" href="{{ theme_url }}/assets/css/gistthemes.css">
+    {% endif %}
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
+<section class="container home">
 
-  <section class="container home">
-    
     <header id="header">
-      <h1 class="title"><a href="/">Hazuli Fidastian</a></h1>
-      <nav>
-        <a class="extra_first {% if meta.page == 'home' %} {{ 'active' }} {% endif %}" href="/">home</a>
-        <a class="extra {% if meta.page == 'work' %} {{ 'active' }} {% endif %}" href="/work">work</a>
-        <a class="extra {% if meta.page == 'bio' %} {{ 'active' }} {% endif %}" href="/bio">bio</a>
-        <a class="extra {% if meta.page == 'blog' or meta.page == 'post' %} {{ 'active' }} {% endif %}" href="/blog">blog</a>
-        <a class="extra {% if meta.page == 'contact' %} {{ 'active' }} {% endif %}" href="/contact">contact</a>
-      </nav>
+        <h1 class="title"><a href="/">Hazuli Fidastian</a></h1>
+        <nav>
+            <a class="extra_first {% if meta.page == 'home' %} 
+                {{ 'active' }} {% endif %}" href="/">home</a>
+            <a class="extra {% if meta.page == 'work' %} 
+                {{ 'active' }} {% endif %}" href="/work.html">work</a>
+            <a class="extra {% if meta.page == 'bio' %} 
+                {{ 'active' }} {% endif %}" href="/bio.html">bio</a>
+            <a class="extra {% if meta.page == 'blog' or 
+                meta.page == 'post' %} {{ 'active' }} {% endif %}" 
+                href="/blog.html">blog</a>
+            <a class="extra {% if meta.page == 'contact' %} 
+                {{ 'active' }} {% endif %}" href="/contact.html">contact</a>
+        </nav>
     </header>
 
     <section>
-      {% if meta.page == 'blog' %}
-          {% include ('blog.html') %}
-          <p class="pagination">Older . Newer</p>
-      {% elseif meta.page == 'post' %} <!-- Single page shows individual blog post -->
-          {% include ('post.html') %}
-      {% else %}
-          {{ content }}
-      {% endif %}
+        {% if search_label %} {% include ('blog.html') %}
+        {% elseif meta.page == 'blog' %} {% include ('blog.html') %}
+        {% elseif meta.page == 'post' %} {% include ('post.html') %}
+        {% else %} {{ content }}
+        {% endif %}
     </section>
 
     <footer id="footer">
-      <p>Hazuli Fidastian: <a href="mailto:hi@hazulifidastian.com">hi@hazulifidastian.com</a><br>Freelance Developer.</p>
+        <p>Hazuli Fidastian: <a href="mailto:hi@hazulifidastian.com">
+            hi@hazulifidastian.com</a><br>Freelance Developer.</p>
     </footer>
 
-  </section>
-  
+</section>
 
-  <script src=""></script>
+<script src=""></script>
 </body>
 </html>

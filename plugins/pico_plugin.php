@@ -49,7 +49,6 @@ class Pico_Plugin
     {
         $headers['lang'] = 'Lang';
         $headers['page'] = 'Page';
-        $headers['labels'] = 'Labels';
     }
 
     public function file_meta(&$meta)
@@ -70,7 +69,6 @@ class Pico_Plugin
     public function get_page_data(&$data, $page_meta)
     {
         $data['meta_page'] = $page_meta['page'];
-        $data['meta_labels'] = $page_meta['labels'];
     }
 
     public function get_pages(&$pages, &$current_page, &$prev_page, &$next_page)
