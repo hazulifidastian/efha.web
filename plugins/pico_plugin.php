@@ -53,7 +53,8 @@ class Pico_Plugin
 
     public function file_meta(&$meta)
     {
-
+        $meta['lang'] = trim($meta['lang']);
+        $meta['page'] = trim($meta['page']);
     }
 
     public function before_parse_content(&$content)

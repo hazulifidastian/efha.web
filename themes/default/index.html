@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="{% if meta.lang %} {{ meta.lang }} {% else %} {{ 'id' }} {% endif %}">
+<html lang="{% spaceless %}
+        {% if meta.lang %} {{ meta.lang }} {% else %} {{ 'id' }} {% endif %}
+    {% endspaceless %}">
 <head>
     <meta charset="utf-8">
 
@@ -47,13 +49,13 @@
         </nav>
     </header>
 
-    <section>
+    <main>
         {% if search_label %} {% include ('blog.html') %}
         {% elseif meta.page == 'blog' %} {% include ('blog.html') %}
         {% elseif meta.page == 'post' %} {% include ('post.html') %}
         {% else %} {{ content }}
         {% endif %}
-    </section>
+    </main>
 
     <footer id="footer">
         <p>Hazuli Fidastian: <a href="mailto:hi@hazulifidastian.com">
@@ -62,6 +64,5 @@
 
 </section>
 
-<script src=""></script>
 </body>
 </html>
