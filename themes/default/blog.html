@@ -1,11 +1,11 @@
 {% macro show_post(page, search_label_url) %}
 <article class="post">
     <header class="post-title">
-        <h4><a href="{{ page.url_html }}">{{ page.title }}</a></h4>
+        <h5><a href="{{ page.url_html }}">{{ page.title }}</a></h5>
         <p>
         <small>
-        {{ page.date_formatted }} - Labels: 
-        
+        {{ page.date_formatted }} - Labels:
+
         {% for key, label in page.meta_labels %}
 
             {% if page.meta_labels[key+1] %}
