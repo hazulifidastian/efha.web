@@ -9,15 +9,33 @@ Labels: xcode
 
 <p>Buka terminal,</p>
 
-<pre><code>$ cp /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist ~/Desktop/IDETextKeyBindingSet.plist</code></pre>
+<pre><code class="break-word">$ cp /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist ~/Desktop/IDETextKeyBindingSet.plist</code></pre>
 
 <p><b>IDETextKeyBindingSet.plist</b> adalah xml file yang menyimpan informasi shortcut yang digunakan oleh Xcode. IDETextKeyBindingSet.plist di salin ke desktop untuk di edit, karena file di direktori aslinya terkunci. Selanjutnya buka IDETextKeyBindingSet.plist yang ada di desktop dengan mengunakan texteditor, seperti textedit dan tambahkan baris:</p>
 
-<script src="https://gist.github.com/hazulifidastian/2a1b9c1dc6b48957e1b9.js"></script>
+<pre><code># key dan dict ini tidak perlu ditambahkan, 
+# hanya sekedar panduan untuk memasukkan key Customize
+
+&lt;key&gt;Undo/Redo&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;Redo&lt;/key&gt;
+  &lt;string&gt;redo:&lt;/string&gt;
+  &lt;key&gt;Undo&lt;/key&gt;
+  &lt;string&gt;undo:&lt;/string&gt;
+&lt;/dict&gt;
+
+# masukkan key dan dict ini.
+&lt;key&gt;Customized&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;Delete Line&lt;/key&gt;
+  &lt;string&gt;moveToEndOfLine:, deleteToBeginningOfLine:, deleteToEndOfParagraph:&lt;/string&gt;
+  &lt;key&gt;Duplicate Line&lt;/key&gt;
+  &lt;string&gt;selectLine:, copy:, moveToEndOfLine:, insertNewline:, paste:, deleteBackward:&lt;/string&gt;
+&lt;/dict&gt;</code></pre>
 
 <p>Setelah disimpan, salin kembali file IDETextKeyBindingSet.plist yang sudah di edit ke direktori aslinya.</p>
 
-<pre><code>$ sudo cp ~/Desktop/IDETextKeyBindingSet.plist /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist</code></pre>
+<pre><code class="break-word">$ sudo cp ~/Desktop/IDETextKeyBindingSet.plist /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist</code></pre>
 
 <p>Buka Xcode :Menu: Preferences :: Key Bindings. Gunakan fasilitas "Search" untuk mencari key yang baru ditambahkan (Delete Line dan Duplicate Line). Dan jika sudah ketemu, rubah kombinasi shortcut keyboardnya. Untuk shortcut yang conflict bisa cari kombinasi shortcut yang lain.</p>
 

@@ -8,6 +8,32 @@ Labels: php
 
 <p>Tidak ada opsi khusus untuk merubah dari koma ke titik koma, kecuali dengan bersusah payah merubah regional setting dicontrol panel windows. Jika sekali atau dua kali tidak menyulitkan. Jika sering, bisa berganti menggunakan fungsi macro ini.</p>
 
-<script src="https://gist.github.com/hazulifidastian/3d254a939e54ae1d35a6.js"></script>
+<pre><code>Option Explicit
+    Sub save2csv()
+    Dim lastColumn As Integer
+    Dim lastRow As Integer
+    Dim strString As String
+    Dim i As Integer, j As Integer
+    lastColumn = ActiveSheet.UsedRange.Column - 1 + ActiveSheet.UsedRange.Columns.Count
+    lastRow = ActiveSheet.UsedRange.Rows(ActiveSheet.UsedRange.Rows.Count).Row
+    
+    Open &quot;output.csv&quot; For Output As #1
+    
+    For i = 1 To lastRow
+    Cells(i, 1).Select
+    strString = &quot;&quot;
+    For j = 1 To lastColumn
+    If j &amp;lt;&amp;gt; lastColumn Then
+    strString = strString &amp;amp; Cells(i, j).Value &amp;amp; &quot;;&quot;
+    Else
+    strString = strString &amp;amp; Cells(i, j).Value
+    End If
+    Next j
+    Print #1, strString
+    Next i
+    
+    Close #1
+    
+End Sub</code></pre>
 
 <p><b>Referensi:</b><br/><a href="http://superuser.com/questions/476327/how-do-i-save-an-excel-spreadsheet-as-a-semi-colon-separated-values-file">superuser.com</a></p>

@@ -148,6 +148,13 @@ pre {
 }
 
 pre code {
-      word-wrap: break-word;
+      word-wrap: normal;
       white-space: pre;
+      font-family: 'RobotoMono';
+      font-weight: 400;
+      font-size: 0.85em;
+}
+
+pre code.break-word {
+      word-wrap: break-word;
 }

@@ -19,15 +19,8 @@
     <link rel="stylesheet" href="{{ theme_url }}/assets/css/typeplate.min.css">
     <link rel="stylesheet" href="{{ theme_url }}/assets/css/style.css">
 
-    {% if meta.page == 'post' %} <!-- Load highlight -->
-        <link rel="stylesheet" href="{{ theme_url }}/assets/css/gistthemes.css">
-    {% endif %}
-
     {% if cookies_dark_theme %}
         <link rel="stylesheet" href="{{ theme_url }}/assets/css/dark.css">
-        {% if meta.page == 'post' %} <!-- Load highlight -->
-            <link rel="stylesheet" href="{{ theme_url }}/assets/css/gistthemesdark.css">
-        {% endif %}
     {% endif %}
 
     <!--[if lt IE 9]>

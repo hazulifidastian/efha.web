@@ -17,24 +17,24 @@ Labels: c++, wxWidgets
 
 <p>Ganti direktori ke WX root. Di contoh ini direktori WX root ada pada ~/wx/wxWidgets-2.9.4</p>
 
-<pre><code>$ cd ~/wx/wxWidgets-2.9.4
+<pre><code class="break-word">$ cd ~/wx/wxWidgets-2.9.4
 # perintah pada terminal Mac OS X</code></pre>
 
 <p><b>Create an output directory for the build</b>, Setiap tipe build harus memiliki direktori terpisah dari source code.</p>
 
-<pre><code>$ mkdir build-release
+<pre><code class="break-word">$ mkdir build-release
 $ cd build-release</code></pre>
 
 <h4>Konfigurasi library</h4>
 
 <p>Sekarang konfigurasi library sesuai dengan spesifikasi tipe yang diinginkan. Untuk melihat opsi yang bisa digunakan pada Mac OS X, <a href="http://wiki.wxwidgets.org/Possible_Configure_Flags_under_OS_X"> Possible Configure Flags under OS X </a>. Untuk Mac OS X 10.8 opsi yang digunakan seperti ini:</p>
 
-<pre><code>$ ../configure --with-osx_cocoa --with-macosx-version-min=10.7 --with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk --prefix="$(pwd)"</code></pre>
+<pre><code class="break-word">$ ../configure --with-osx_cocoa --with-macosx-version-min=10.7 --with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk --prefix="$(pwd)"</code></pre>
 
 <h4>Make</h4>
 
 <p>Kompilasi kode wxWidgets dengan perintah:</p>
 
-<pre><code>$ make</code></pre>
+<pre><code class="break-word">$ make</code></pre>
 
 <p><b>References</b>, <a href="http://wiki.wxwidgets.org/Compiling_wxWidgets_using_the_command-line_(Terminal)">Compiling wxWidgets using the command-line (Terminal)</a>.</p>

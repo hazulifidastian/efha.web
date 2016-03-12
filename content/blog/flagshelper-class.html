@@ -5,10 +5,202 @@ Page: post
 Labels: php
 */
 
-<script src="https://gist.github.com/hazulifidastian/974f5380e2049a4011ee.js"></script>
+<pre><code>&lt;?php
+/**
+*   @author Hazuli Fidastian &lt;hazulifidastian@gmail.com&gt;
+*   @package Helpers
+*/
+
+
+/**
+* Membantu mendefinisikan, validasi, pengecekan flags
+* 
+*/
+class FlagsHelper {
+
+    /**
+     * Separator
+     * @var string
+     */
+    private $sep = '|';
+
+    /**
+     * Hanya menerima flags yang valid
+     * @var array
+     */
+    private $valid_flags = array(
+        'LOCKED',
+        'UNLOCKED',
+        'ORIGINAL',
+        'REPLACEMENT',
+        );
+
+    /**
+     * Flag-flag
+     * 
+     * @var string
+     */
+    private $flags = array();
+
+    /**
+     * 
+     * @var Singleton
+    */
+    private static $instance;
+
+    /**
+     * Inisialisasi
+     * 
+     * @param string $flags [description]
+     * @return instance
+     */
+    public static function flags($flags='') {
+        if (is_null(self::$instance))
+            self::$instance = new self($flags);
+        
+        return self::$instance;
+    }
+
+    /**
+     * Constructor with flags
+     * 
+     * @param string $flags
+     */
+    private function __construct($flags = '') {
+        $this-&gt;extract($flags);
+    }
+
+    /**
+     * Magic method to filter flag parameter from method insert, delete, exists and update
+     * @param string $name Method name
+     * @param array $args Arguments
+     * @return call a function | $this
+     */
+    public function __call($name, $args) {
+        $validate_flag = array('insert', 'delete', 'exists');
+        if (method_exists($this, &quot;_{$name}&quot;)) {
+            if(in_array($name, $validate_flag) and $this-&gt;validate($args[0])) {
+                return call_user_func_array(array($this, &quot;_{$name}&quot;), $args);
+            }
+            else if ($name == 'update' and $this-&gt;validate($args[0]) and $this-&gt;validate($args[1])) {
+                return call_user_func_array(array($this, &quot;_{$name}&quot;), $args);
+            }
+        }
+        
+        return $this;
+    }
+
+    /**
+     * Extract to array and validate flags
+     * 
+     * @param string $flags
+     * @return void
+     */
+    private function extract($flags) {
+        $flags = explode($this-&gt;sep, $flags);
+        foreach($flags as $fl) {
+            if($this-&gt;validate($fl)) {
+                $this-&gt;flags[] = $fl;
+            }
+        }
+    }
+
+    /**
+     * Validasi apakah flag sudah dideklarasikan
+     * 
+     * @param string $flag
+     * @return boolean Tersedia/tidak
+     */
+    private function validate($flag) {   
+        return in_array($flag, $this-&gt;valid_flags);
+    }
+
+    /**
+     * Cek apakah flag ada didalam flags
+     * 
+     * @param string $flag
+     * @return boolean
+     */
+    public function _exists($flag) {
+        return in_array($flag, $this-&gt;flags);
+    }
+
+    /**
+     * Tambah
+     * 
+     * @param string $flag
+     * @return FlagsHelper
+     */
+    public function _insert($flag) {
+        if(!$this-&gt;exists($flag)) {
+            array_push($this-&gt;flags, $flag);
+            $this-&gt;flags = array_unique($this-&gt;flags, SORT_STRING);
+        }
+        
+        return $this;
+    }
+
+    /**
+     * Hapus
+     * 
+     * @param string $flag
+     * @return FlagsHelper
+     */
+    public function _delete($flag) {
+        $this-&gt;flags = array_diff($this-&gt;flags, array($flag));
+        return $this;
+    }
+
+    /**
+     * Update
+     * 
+     * @param string $flag
+     * @return FlagsHelper
+     */
+    public function _update($from_flag, $to_flag) {
+        $this-&gt;delete($from_flag);
+        $this-&gt;insert($to_flag);
+        return $this;
+    }
+
+    /**
+     * Convert to string
+     * 
+     * @return string
+     */
+    public function to_str() {
+        return implode($this-&gt;sep, $this-&gt;flags);
+    }
+
+    /**
+     * Get flags string
+     * 
+     * @return string
+     */
+    public function select() {
+        return $this-&gt;to_str();
+    }
+
+    /**
+     * Convert to array
+     * 
+     * @return array
+     */
+    public function to_array() {
+        return $this-&gt;flags;
+    }
+
+    /**
+     * Convert to json
+     * @return json string
+     */
+    public function to_json() {
+        return json_encode($this-&gt;flags);
+    }
+}</code></pre>
 
 <p>Deklarasikan valid flags di variable $valid_flags variable, dan panggil dengan</p>
 
-<pre><code>FlagsHelper::flags('ORIGINAL')->add('LOCKED')->select();</code></pre>
+<pre><code class="break-word">FlagsHelper::flags('ORIGINAL')->add('LOCKED')->select();</code></pre>
 
 <p>Kode diatas akan menginisialisasi flag ORIGINAL, menambahkan flag LOCKED, dan kemudian mengembalikan string LOCKED|ORIGINAL</p>

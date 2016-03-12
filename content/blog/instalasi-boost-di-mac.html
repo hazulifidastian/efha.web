@@ -11,27 +11,39 @@ Labels: c++, boost
 
 <p>Ok, Ready. Buka terminal dan install Boost dengan MacPorts,</p>
 
-<pre><code>$ sudo port install boost</code></pre>
+<pre><code class="break-word">$ sudo port install boost</code></pre>
 
 <p>Tunggu prosesnya, lumayan lama. File yang didownload ukurannya diatas 90Mb.</p>
 
 <p>Sudah selesai? Jika sudah kita lanjutkan. Library Boost secara otomatis telah terinstal difolder <b>/opt/local/include/boost/</b>.Cara menggunakannya, pertama buat link "<b>boostlib</b>"&nbsp;yang mengarah ke folder <b>/opt/local/include/</b>. Misal, folder penyimpanan kode program ada di <b>/home/nama_user_mu/cpp_source_code/</b></p>
 
-<pre><code>$ cd /home/nama_user_mu/cpp_source_code
+<pre><code class="break-word">$ cd /home/nama_user_mu/cpp_source_code
 $ ln -s /opt/local/include/ boostlib</code></pre>
 
 <p>Setelah perintah diatas berhasil, link <b>boostlib</b> akan tersedia didalam folder. Link <b>boostlib</b> ini yang akan digunakan sebagai opsi include folder oleh <b>g++</b>.</p>
 
 <p>Untuk mulai menggunakan boost, simpan kode C++ dibawah ini dengan nama <b>first_boost.cpp</b>:</p>
 
-<script src="https://gist.github.com/hazulifidastian/85fee1754e504de1e211.js"></script>
+<pre><code>#include &lt;boost/lambda/lambda.hpp&gt;
+#include &lt;iostream&gt;
+#include &lt;iterator&gt;
+#include &lt;algorithm&gt;
+
+int main()
+{
+  using namespace boost::lambda;
+  typedef std::istream_iterator in;
+
+  std::for_each(
+    in(std::cin), in(), std::cout &lt;&lt; (_1 * 3) &lt;&lt; &quot; &quot; );
+}</code></pre>
 
 <p>Kemudian diterminal jalankan perintah</p>
 
-<pre><code>$ g++ -I boostlib first_boost.cpp</code></pre>
+<pre><code class="break-word">$ g++ -I boostlib first_boost.cpp</code></pre>
 
 <p>Jika kompilasi sukses, maka intalasi Boost pun sukses. Jalankan aplikasinya, a.out adalah file executable yang dihasilkan kompiler g++</p>
 
-<pre><code>$ ./a.out</code></pre>
+<pre><code class="break-word">$ ./a.out</code></pre>
 
 <p>Ketik sembarang angka, dan aplikasi akan mengalikannya dengan angka 3.</p>

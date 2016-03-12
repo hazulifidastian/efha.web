@@ -7,19 +7,85 @@ Labels: c++, wxWidgets
 
 <p>Pertama kali menggunakan wxWidgets, copy/paste kode <a href="http://www.wxwidgets.org/docs/tutorials/hworld.txt">Hello World</a> C++ menggunakan library wxWidgets, dari Robert Roeblings.</p>
 
-<script src="https://gist.github.com/hazulifidastian/a3e547c269740668db12.js"></script>
+<pre><code>/*
+ * hworld.cpp
+ */
+
+#include &quot;wx/wx.h&quot; 
+
+class MyApp : public wxApp {
+  virtual bool OnInit();
+};
+
+class MyFrame : public wxFrame {
+public:
+
+  MyFrame(const wxString&amp; title, const wxPoint&amp; pos, const wxSize&amp; size);
+
+  void OnQuit(wxCommandEvent&amp; event);
+  void OnAbout(wxCommandEvent&amp; event);
+
+  DECLARE_EVENT_TABLE()
+};
+
+enum {
+  ID_Quit = 1,
+  ID_About,
+};
+
+BEGIN_EVENT_TABLE(MyFrame, wxFrame)
+EVT_MENU(ID_Quit, MyFrame::OnQuit)
+EVT_MENU(ID_About, MyFrame::OnAbout)
+END_EVENT_TABLE()
+
+IMPLEMENT_APP(MyApp)
+
+bool MyApp::OnInit() {
+  MyFrame *frame = new MyFrame(_(&quot;Hello World&quot;), wxPoint(50, 50),
+          wxSize(450, 340));
+  frame-&gt;Show(true);
+  SetTopWindow(frame);
+  return true;
+}
+
+MyFrame::MyFrame(const wxString&amp; title, const wxPoint&amp; pos, const wxSize&amp; size)
+: wxFrame(NULL, -1, title, pos, size) {
+  wxMenu *menuFile = new wxMenu;
+
+  menuFile-&gt;Append(ID_About, _(&quot;&amp;About...&quot;));
+  menuFile-&gt;AppendSeparator();
+  menuFile-&gt;Append(ID_Quit, _(&quot;E&amp;xit&quot;));
+
+  wxMenuBar *menuBar = new wxMenuBar;
+  menuBar-&gt;Append(menuFile, _(&quot;&amp;File&quot;));
+
+  SetMenuBar(menuBar);
+
+  CreateStatusBar();
+  SetStatusText(_(&quot;Welcome to wxWidgets!&quot;));
+}
+
+void MyFrame::OnQuit(wxCommandEvent&amp; WXUNUSED(event)) {
+  Close(TRUE);
+}
+
+void MyFrame::OnAbout(wxCommandEvent&amp; WXUNUSED(event)) {
+  wxMessageBox(_(&quot;This is a wxWidgets Hello world sample&quot;),
+          _(&quot;About Hello World&quot;),
+          wxOK | wxICON_INFORMATION, this);
+}</code></pre>
 
 <p>Sebelum kompilasi, direktori hasil build-release ditulisan sebelumnya PATHnya harus dishare agar bisa diakses dari direktori manapun.</p>
 
-<pre><code>$ nano ~/.bash_profile</code></pre>
+<pre><code class="break-word">$ nano ~/.bash_profile</code></pre>
 
 <p>pada file .bash_profile tambahkan baris berisi path direktori hasil build ditulisan sebelumnya.</p>
 
-<pre><code>export="~/wx/wxWidgets-2.9.4/build-release":$PATH</code></pre>
+<pre><code class="break-word">export="~/wx/wxWidgets-2.9.4/build-release":$PATH</code></pre>
 
 <p>Sekarang saatnya kompilasi, tutup terminal yang sedang terbuka. Kemudian buka kembali terminal agar path yang baru dishare aktif. Dan kompilasi hworld.cpp dengkan perintah:</p>
 
-<pre><code>$ g++ -c `wx-config --cxxflags` hworld.cpp
+<pre><code class="break-word">$ g++ -c `wx-config --cxxflags` hworld.cpp
 $ g++ -o hworld hworld.o `wx-config --libs`
 $ ./hworld</code></pre>
 
