@@ -1,29 +1,28 @@
-<article class="post">
-    <header class="post-title">
+<header id="header">
         {% if meta.title %}<h3>{{ meta.title }}</h3>{% endif %}
+</header>
+<main>
+    <article class="post">
+        {{ content }}
+
         <p>
-        <small>Labels: 
         {% for key, label in meta.labels %}
 
             {% if meta.labels[key+1] %}
-                <a href="{{ search_label_url }}{{ label }}">{{ label }}</a>,
+                <a href="{{ search_label_url }}{{ label }}">#{{ label }}</a><br>
             {% else %}
-                <a href="{{ search_label_url }}{{ label }}">{{ label }}</a>
+                <a href="{{ search_label_url }}{{ label }}">#{{ label }}</a><br>
             {% endif %}
 
         {% endfor %}
-        </small>
-        </p>
-    </header>
-    {{ content }}
-</article>
 
-<p class="pagination">
-{% if prev_page.meta_page == 'post' %}
-    <a href="{{ prev_page.url }}.html" title="{{ prev_page.title }}">Prev</a>
-{% endif %}
-.
-{% if next_page.meta_page == 'post' %}
-    <a href="{{ next_page.url }}.html" title="{{ next_page.title }}">Next</a>
-{% endif %}
-</p>
+        {% if prev_page.meta_page == 'post' %}
+            <a href="{{ prev_page.url }}.html" title="{{ prev_page.title }}">#prev</a><br>
+        {% endif %}
+
+        {% if next_page.meta_page == 'post' %}
+            <a href="{{ next_page.url }}.html" title="{{ next_page.title }}">#next</a>
+        {% endif %}
+        </p>
+    </article>
+</main>

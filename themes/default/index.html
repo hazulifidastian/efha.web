@@ -31,35 +31,16 @@
 
 <body>
 <section class="container home">
-
-    <header id="header">
-        <h1 class="title"><a href="/">Hazuli Fidastian</a></h1>
-        <nav>
-            <a class="extra_first {% if meta.page == 'home' %} 
-                {{ 'active' }} {% endif %}" href="/">home</a>
-            <a class="extra {% if meta.page == 'work' %} 
-                {{ 'active' }} {% endif %}" href="/work.html">work</a>
-            <a class="extra {% if meta.page == 'bio' %} 
-                {{ 'active' }} {% endif %}" href="/bio.html">bio</a>
-            <a class="extra {% if meta.page == 'blog' or 
-                meta.page == 'post' %} {{ 'active' }} {% endif %}" 
-                href="/blog.html">blog</a>
-            <a class="extra {% if meta.page == 'contact' %} 
-                {{ 'active' }} {% endif %}" href="/contact.html">contact</a>
-        </nav>
-    </header>
-
-    <main>
-        {% if search_label %} {% include ('blog.html') %}
-        {% elseif meta.page == 'blog' %} {% include ('blog.html') %}
-        {% elseif meta.page == 'post' %} {% include ('post.html') %}
-        {% else %} {{ content }}
-        {% endif %}
-    </main>
+    {% if search_label %} {% include ('blog.html') %}
+    {% elseif meta.page == 'blog' %} {% include ('blog.html') %}
+    {% elseif meta.page == 'post' %} {% include ('post.html') %}
+    {% else %} {{ content }}
+    {% endif %}
 
     <footer id="footer">
-        <p>Hazuli Fidastian: <a href="mailto:hi@hazulifidastian.com">
-            hi@hazulifidastian.com</a><br>Freelance Developer.</p>
+        {% include ('nav.html') %}
+        <br>
+        <p>Best regards,<br>Hazuli Fidastian</p>
     </footer>
 
 </section>

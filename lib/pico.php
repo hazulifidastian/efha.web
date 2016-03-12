@@ -149,8 +149,8 @@ class Pico
     {
         $content = preg_replace('#/\*.+?\*/#s', '', $content, 1); // Remove first comment (with meta)
         $content = str_replace('%base_url%', $this->base_url(), $content);
-        $Parsedown = new ParsedownExtra();
-		$content= $Parsedown->text($content);
+        // $Parsedown = new ParsedownExtra();
+		// $content= $Parsedown->text($content);
 
         return $content;
     }

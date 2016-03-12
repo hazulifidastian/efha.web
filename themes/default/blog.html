@@ -1,21 +1,19 @@
 {% macro show_post(page, search_label_url) %}
 <article class="post">
     <header class="post-title">
-        <h5><a href="{{ page.url_html }}">{{ page.title }}</a></h5>
         <p>
-        <small>
-        {{ page.date_formatted }} - Labels:
+        <a href="{{ page.url_html }}">{{ page.title }}</a>.<br>
+        {{ page.date_formatted }} - 
 
         {% for key, label in page.meta_labels %}
 
             {% if page.meta_labels[key+1] %}
-                <a href="{{ search_label_url }}{{ label }}">{{ label }}</a>,
+                <a href="{{ search_label_url }}{{ label }}">#{{ label }}</a>,
             {% else %}
-                <a href="{{ search_label_url }}{{ label }}">{{ label }}</a>
+                <a href="{{ search_label_url }}{{ label }}">#{{ label }}</a>
             {% endif %}
 
         {% endfor %}
-        </small>
         </p>
     </header>
 </article>
@@ -23,16 +21,22 @@
 
 {% import _self as blog %}
 
-<div class='blog-posts'>
-{% for page in pages %}
-    {% if search_label %}
+<header id="header">
+    <h3>Blog</h3>
+</header>
+<main>
+    <p>I write my blog in Indonesian.</p>
+    <div class='blog-posts'>
+    {% for page in pages %}
+        {% if search_label %}
 
-        {% if search_label in page.meta_labels %}
+            {% if search_label in page.meta_labels %}
+                {{ blog.show_post(page, search_label_url) }}
+            {% endif %}
+
+        {% elseif page.meta_page == 'post' %}
             {{ blog.show_post(page, search_label_url) }}
         {% endif %}
-
-    {% elseif page.meta_page == 'post' %}
-        {{ blog.show_post(page, search_label_url) }}
-    {% endif %}
-{% endfor %}
-</div>
+    {% endfor %}
+    </div>
+</main>
