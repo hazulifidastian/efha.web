@@ -23,6 +23,13 @@
         <link rel="stylesheet" href="{{ theme_url }}/assets/css/gistthemes.css">
     {% endif %}
 
+    {% if cookies_dark_theme %}
+        <link rel="stylesheet" href="{{ theme_url }}/assets/css/dark.css">
+        {% if meta.page == 'post' %} <!-- Load highlight -->
+            <link rel="stylesheet" href="{{ theme_url }}/assets/css/gistthemesdark.css">
+        {% endif %}
+    {% endif %}
+
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,6 +37,7 @@
 </head>
 
 <body>
+
 <section class="container home">
     {% if search_label %} {% include ('blog.html') %}
     {% elseif meta.page == 'blog' %} {% include ('blog.html') %}

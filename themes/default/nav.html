@@ -1,4 +1,23 @@
-<p class=".nav">
+<script type="text/javascript">
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+
+    function setDarkTheme() {
+        setCookie('dark_theme', 1, 3);
+        location.reload();
+    }
+
+    function setLightTheme() {
+        setCookie('dark_theme', 0, 3);
+        location.reload();
+    }
+</script>
+<p class="nav">
     <a class="menu_first menu {% if meta.page == 'home' %} 
         {{ 'active' }} {% endif %}" href="/">#Home</a>
     <a class="menu {% if meta.page == 'work' %} 
@@ -10,4 +29,10 @@
         href="/blog.html">#Blog</a>
     <a class="menu {% if meta.page == 'contact' %} 
         {{ 'active' }} {% endif %}" href="/contact.html">#Contact</a>
+
+    {% if cookies_dark_theme %}
+        <a class="menu_light menu" href="#light" onclick="js:setLightTheme()">#Light</a>
+    {% else %}
+        <a class="menu_dark menu" href="#dark" onclick="js:setDarkTheme()">#Dark</a>
+    {% endif %}
 </p>

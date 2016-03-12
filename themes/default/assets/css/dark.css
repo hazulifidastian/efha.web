@@ -1,0 +1,54 @@
+body {
+      background-color: #212121;
+      color: #e1e1e1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+      color: #e1e1e1;
+}
+
+
+a         { color: #019a88; text-decoration: none;}
+a:hover   { color: #e1e1e1 !important; text-decoration: underline;}
+a:visited { color: #019a88; text-decoration: none;}
+
+
+
+#header h1 {
+      color: #019a88;
+}
+
+#header h3 {
+      color: #019a88;
+}
+
+.nav a.menu {
+      color: #019a88;
+}
+
+.nav a.active {
+      color: #f05a35;
+}
+
+.nav a.menu:hover {
+      color: #e1e1e1 !important;
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+      color: #e1e1e1;
+}
+
+.post .post-title a {
+      color: #019a88;
+}
+
+pre {
+      border: 1px solid #e1e1e1;
+      background-color: #212121;
+}
+

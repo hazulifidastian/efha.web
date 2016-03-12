@@ -1,0 +1,37 @@
+.gist .gist-file .gist-data .line-pre{font-family:RobotoMono !important}
+.gist .gist-file{font-family:RobotoMono !important}
+.gist .gist-file .gist-meta{font-family:RobotoMono !important}
+.gist .gist-file{border-color:#e1e1e1 !important}
+.gist .gist-file .gist-data .line-numbers{border-right-color:#e1e1e1 !important}
+.gist .gist-file .gist-data{border-bottom-color:#e1e1e1 !important}
+.gist .gist-file .gist-data .line-numbers{background:#212121 !important}
+.gist .gist-file .gist-data{background:#212121 !important}
+.gist .gist-file .gist-meta{background:#212121 !important}
+.gist .gist-file .gist-data .line-numbers{color:#e1e1e1 !important}
+.gist .gist-file .gist-meta{color:#e1e1e1 !important}
+.gist .gist-file .gist-meta a{color:#e1e1e1 !important}
+.gist .gist-file .gist-data .line-numbers{text-shadow:none !important}
+.gist .gist-file .gist-meta{text-shadow:none !important}
+.gist .gist-file .gist-data {border-radius: 2px 2px 0 0 !important}
+.gist .gist-file .gist-meta {border: none; !important}
+.gist .gist-file .highlight {background-color: #212121;}
+
+.gist .gist-file .gist-data .blob-num{color: #e1e1e1 !important}
+
+/*
+.gist .gist-file .gist-data .line-pre{font-family:RobotoMono !important}
+.gist .gist-file{font-family:RobotoMono !important}
+.gist .gist-file .gist-meta{font-family:RobotoMono !important}
+.gist .gist-file{border-color:#ffffff !important}
+.gist .gist-file .gist-data .line-numbers{border-right-color:#ffffff !important}
+.gist .gist-file .gist-data{border-bottom-color:#ffffff !important}
+.gist .gist-file .gist-data .line-numbers{background:#000000 !important}
+.gist .gist-file .gist-data{background:#000000 !important}
+.gist .gist-file .gist-meta{background:#000000 !important}
+.gist .gist-file .gist-data .line-numbers{color:#ffffff !important}
+.gist .gist-file .gist-meta{color:#ffffff !important}
+.gist .gist-file .gist-meta a{color:#ffffff !important}
+.gist .gist-file .gist-data .line-numbers{text-shadow:none !important}
+.gist .gist-file .gist-meta{text-shadow:none !important}
+.gist .gist-file .gist-data {border-radius: 2px 2px 0 0 !important}
+.gist .gist-file .gist-meta {border-radius: 0 0 2px 2px !important}*/

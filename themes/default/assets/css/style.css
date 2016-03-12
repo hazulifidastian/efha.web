@@ -98,7 +98,12 @@ a:visited { color: #18988b; text-decoration: none;}
 }
 
 .nav a.menu:hover {
-      color: #f05a35 !important;
+      color: #3a3a3a !important;
+}
+
+.nav a.menu_light,
+.nav a.menu_dark {
+      float: right;
 }
 
 #footer {
@@ -132,37 +137,6 @@ a:visited { color: #18988b; text-decoration: none;}
 .post p + p {
       text-indent:0;
       margin-top: 0;
-}
-
-.post .post-title h5 {
-      margin-bottom: 0em;
-}
-
-.bottom-holder {
-      display: table;
-      margin-top: 3em;
-      padding-top: 1em;
-      border-top: 4px solid #afbabc;
-}
-
-.bottom {
-      width: 30%;
-      display: table-cell;
-}
-
-.bottom1 { padding-right: 1em; }
-.bottom2 { padding-left:1em; }
-
-.bottom .Label ul{
-      -webkit-padding-start: 0;
-      padding-left: 0;
-      list-style-type: none;
-      margin-left: 0;
-      text-indent: 0;
-}
-
-.pagination {
-      margin-top: 0.5;
 }
 
 pre {
