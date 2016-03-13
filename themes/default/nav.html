@@ -17,18 +17,12 @@
         location.reload();
     }
 </script>
-<p class="nav">
-    <a class="menu_first menu {% if meta.page == 'home' %} 
-        {{ 'active' }} {% endif %}" href="/">#Home</a>
-    <a class="menu {% if meta.page == 'work' %} 
-        {{ 'active' }} {% endif %}" href="/work.html">#Work</a>
-    <a class="menu {% if meta.page == 'bio' %} 
-        {{ 'active' }} {% endif %}" href="/bio.html">#Bio</a>
-    <a class="menu {% if meta.page == 'blog' or 
-        meta.page == 'post' %} {{ 'active' }} {% endif %}" 
-        href="/blog.html">#Blog</a>
-    <a class="menu {% if meta.page == 'contact' %} 
-        {{ 'active' }} {% endif %}" href="/contact.html">#Contact</a>
+<p>
+    <a class="menu_first menu {% if meta.page == 'home' %} {{ 'active' }} {% endif %}" href="/">#Home</a>
+    <a class="menu {% if meta.page == 'work' %} {{ 'active' }} {% endif %}" href="/work.html">#Work</a>
+    <a class="menu {% if meta.page == 'bio' %} {{ 'active' }} {% endif %}" href="/bio.html">#Bio</a>
+    <a class="menu {% if meta.page == 'blog' or meta.page == 'post' %} {{ 'active' }} {% endif %}" href="/blog.html">#Blog</a>
+    <a class="menu {% if meta.page == 'contact' %} {{ 'active' }} {% endif %}" href="/contact.html">#Contact</a>
 
     {% if cookies_dark_theme %}
         <a class="menu_light menu" href="#light" onclick="js:setLightTheme()">#Light</a>

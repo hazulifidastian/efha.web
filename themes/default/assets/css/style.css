@@ -1,28 +1,13 @@
-/*@font-face {
-      font-family: Merriweather;
-      src: url('Merriweather/Merriweather-Regular.ttf');
-}
-@font-face {
-      font-family: Oswald;
-      src: url('Oswald/Oswald-Regular.ttf');
-}*/
-
 @font-face {
       font-family: RobotoMono;
       src: url('RobotoMono/RobotoMono-Light.ttf');
 }
 
-/*@font-face {
-      font-family: OpenSans;
-      src: url('OpenSans/OpenSans-Regular.ttf');
-}*/
-
 body {
       background-color: #fcfcfc;
-      /*font-family: 'Merriweather', Georgia, serif;*/
       font-family: 'RobotoMono';
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.6em;
       padding: 0 2em;
       word-wrap: break-word;
       color: #3a3a3a;
@@ -83,26 +68,25 @@ a:visited { color: #18988b; text-decoration: none;}
       color: #18988b;
 }
 
-.nav a.menu {
+a.menu {
       color: #18988b;
-      /*margin-left: 1em;*/
       font-weight: 400;
 }
 
-.nav a.menu_first {
+a.menu_first {
       margin-left: 0em;
 }
 
-.nav a.active {
+ a.active {
       color: #f05a35;
 }
 
-.nav a.menu:hover {
+a.menu:hover {
       color: #3a3a3a !important;
 }
 
-.nav a.menu_light,
-.nav a.menu_dark {
+a.menu_light,
+a.menu_dark {
       float: right;
 }
 
